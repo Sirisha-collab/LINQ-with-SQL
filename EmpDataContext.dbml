@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WFHDotNet" Class="EmpDataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-EJSG2SF;Initial Catalog=WFHDotNet;Integrated Security=True" SettingsObjectName="LinqToSql3Feb.Properties.Settings" SettingsPropertyName="WFHDotNetConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Employees" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="Eid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmpName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Salary" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DeptNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Sp_EmpDetails" Method="Sp_EmpDetails">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Sp_EmpDetailsResult">
+      <Column Name="EmpName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Salary" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DeptNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DeptName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Sp_InsertEmp" Method="Sp_InsertEmp">
+    <Parameter Name="EmpName" Parameter="empName" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="esal" Type="System.Double" DbType="Float" />
+    <Parameter Name="edept" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_WithOutput" Method="sp_WithOutput">
+    <Parameter Name="Epf" Parameter="epf" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Sp_UpdateEmp" Method="Sp_UpdateEmp">
+    <Parameter Name="Empid" Parameter="empid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EmpName" Parameter="empName" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="esal" Type="System.Double" DbType="Float" />
+    <Parameter Name="edept" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
